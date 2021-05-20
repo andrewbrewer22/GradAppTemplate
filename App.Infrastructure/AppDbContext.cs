@@ -9,6 +9,7 @@ namespace App.Infrastructure
         public DbSet<Car> Cars { get; set; }
         public AppDbContext(DbContextOptions options) : base(options) {}
 
+        /*
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Car>().HasData(
@@ -21,5 +22,6 @@ namespace App.Infrastructure
 
             base.OnModelCreating(builder);
         }
+        */
     }
 }

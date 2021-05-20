@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using App.Infrastructure.Data;
 
 namespace App
 {
@@ -52,6 +53,7 @@ namespace App
                 });
             //
             services.AddScoped<ICarService, CarService>();
+            services.AddScoped<ICarRepository, CarRepository>();
         }
 
 

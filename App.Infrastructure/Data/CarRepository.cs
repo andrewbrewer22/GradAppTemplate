@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace App.Infrastructure.Data
 {
-    class CarRepository : ICarRepository
+    public class CarRepository : ICarRepository
     {
         private readonly AppDbContext _dbContext;
 

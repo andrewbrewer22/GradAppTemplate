@@ -9,6 +9,6 @@ namespace App.Core.Services
         IEnumerable<Car> GetAll();
         Car Add(Car newCar);
         Car Update(Car updatedCar);
-        void Remove(int id);
+        void Remove(Car car);
     }
 }

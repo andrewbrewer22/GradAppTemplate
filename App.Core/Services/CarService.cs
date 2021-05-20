@@ -1,43 +1,47 @@
 ﻿using App.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace App.Core.Services
 {
     public class CarService : ICarService
     {
+        //private readonly ICarService _carService;
+        private readonly ICarRepository _carRepository;
 
-        private ICarService _carService;
-        public CarService(ICarService carService)
+        public CarService(ICarRepository carRepository)
         {
-            _carService = carService;
+            _carRepository = carRepository;
         }
 
         public Car Add(Car newCar)
         {
-            return _carService.Add(newCar);
+            var vehicle = _carRepository.Get(newCar.Id);
+
+            if (vehicle == null)
+                throw new Exception("Invalid Vehicle");
+
+            return _carRepository.Add(newCar);
         }
 
         public Car Get(int id)
         {
-            return _carService.Get(id);
+            return _carRepository.Get(id);
         }
 
         public IEnumerable<Car> GetAll()
         {
-            return _carService.GetAll();
+            return _carRepository.GetAll();
         }
 
-        public void Remove(int id)
+        public void Remove(Car car)
         {
-            _carService.Remove(id);
+            _carRepository.Remove(car);
         }
 
         public Car Update(Car updatedCar)
         {
-            return _carService.Update(updatedCar);
+            return _carRepository.Update(updatedCar);
         }
     }
 }

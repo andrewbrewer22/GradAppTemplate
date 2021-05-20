@@ -59,10 +59,15 @@ namespace App.Controllers
 
         [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult Remove(int id)
+        public IActionResult Delete(int id)
         {
-            _carService.Remove(id);
-            return Ok();
+            var current = _carService.Get(id);
+
+            if (current == null)
+                return NotFound();
+
+            _carService.Remove(current);
+            return NoContent();
         }
     }
 }
