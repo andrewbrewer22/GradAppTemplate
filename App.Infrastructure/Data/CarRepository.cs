@@ -1,9 +1,7 @@
 ﻿using App.Core.Models;
 using App.Core.Services;
-using Microsoft.EntityFrameworkCore;
-using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 
 namespace App.Infrastructure.Data
 {
@@ -27,23 +25,32 @@ namespace App.Infrastructure.Data
         public Car Get(int id)
         {
             return _dbContext.Cars.Find(id);
-
-        }
-
-        public IEnumerable<Car> GetAll()
-        {
-            //return _dbContext.Cars.ToList();
-            throw new NotImplementedException();
         }
 
         public void Remove(Car vehicle)
         {
-            throw new NotImplementedException();
+            _dbContext.Cars.Remove(vehicle);
+            _dbContext.SaveChanges();
         }
 
         public Car Update(Car vehicle)
         {
-            throw new NotImplementedException();
+            var current = _dbContext.Cars.Find(vehicle.Id);
+
+            if (current == null)
+                return null;
+
+            _dbContext.Entry(current)
+                .CurrentValues
+                .SetValues(vehicle);
+
+            _dbContext.SaveChanges();
+
+            return current;
+        }
+        public IEnumerable<Car> GetAll()
+        {
+            return _dbContext.Cars.ToList();
         }
     }
 }

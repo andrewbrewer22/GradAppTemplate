@@ -50,9 +50,8 @@ namespace App
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
-
-
-            //services.AddScoped<ICarService CarService > ();
+            //
+            services.AddScoped<ICarService, CarService>();
         }
 
 

@@ -9,8 +9,7 @@ namespace App.Core.Services
     public class CarService : ICarService
     {
 
-        private readonly ICarService _carService;
-
+        private ICarService _carService;
         public CarService(ICarService carService)
         {
             _carService = carService;
@@ -18,7 +17,6 @@ namespace App.Core.Services
 
         public Car Add(Car newCar)
         {
-
             return _carService.Add(newCar);
         }
 
