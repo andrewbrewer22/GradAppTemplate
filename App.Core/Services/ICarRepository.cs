@@ -3,12 +3,12 @@ using App.Core.Models;
 
 namespace App.Core.Services
 {
-    public interface ICarService
+    public interface ICarRepository
     {
+        Car Add(Car vehicle);
         Car Get(int id);
+        Car Update(Car vehicle);
+        void Remove(Car vehicle);
         IEnumerable<Car> GetAll();
-        Car Add(Car newCar);
-        Car Update(Car updatedCar);
-        void Remove(int id);
     }
 }

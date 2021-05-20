@@ -56,5 +56,13 @@ namespace App.Controllers
             var updatedCar = _carService.Update(carModel.ToDomainModel());
             return Ok(updatedCar.ToApiModel());
         }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
+        {
+            _carService.Remove(id);
+            return Ok();
+        }
     }
 }
