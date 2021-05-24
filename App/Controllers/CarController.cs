@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using App.ApiModels;
 using App.Core.Services;
 using System;
+using System.Security.Claims;
 
 namespace App.Controllers
 {
@@ -40,7 +41,7 @@ namespace App.Controllers
             {
                 var savedCarData = _carService.Add(carModel.ToDomainModel());
 
-                return CreatedAtAction("Success Car Added", new { Id = savedCarData.Id }, savedCarData.ToApiModel());
+                return Ok(savedCarData.ToApiModel());
             }
             catch (System.Exception ex)
             {
