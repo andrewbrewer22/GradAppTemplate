@@ -21,6 +21,7 @@ namespace App.ApiModels
                 Type = item.Type,
                 Year = item.Year,
                 Color = item.Color,
+                UserId = item.UserId
             };
         }
 
@@ -33,7 +34,8 @@ namespace App.ApiModels
                 Make = item.Make,
                 Model = item.Model,
                 Type = item.Type,
-                Year = item.Year
+                Year = item.Year,
+                UserId = item.UserId
             };
         }
 

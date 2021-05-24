@@ -15,11 +15,6 @@ namespace App.Core.Services
 
         public Car Add(Car newCar)
         {
-            var vehicle = _IcarRepository.Get(newCar.Id);
-
-            if (vehicle == null)
-                throw new Exception("Invalid Vehicle");
-
             return _IcarRepository.Add(newCar);
         }
 
