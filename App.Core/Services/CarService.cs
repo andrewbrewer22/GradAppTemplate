@@ -6,42 +6,41 @@ namespace App.Core.Services
 {
     public class CarService : ICarService
     {
-        //private readonly ICarService _carService;
-        private readonly ICarRepository _carRepository;
+        private readonly ICarRepository _IcarRepository;
 
         public CarService(ICarRepository carRepository)
         {
-            _carRepository = carRepository;
+            _IcarRepository = carRepository;
         }
 
         public Car Add(Car newCar)
         {
-            var vehicle = _carRepository.Get(newCar.Id);
+            var vehicle = _IcarRepository.Get(newCar.Id);
 
             if (vehicle == null)
                 throw new Exception("Invalid Vehicle");
 
-            return _carRepository.Add(newCar);
+            return _IcarRepository.Add(newCar);
         }
 
         public Car Get(int id)
         {
-            return _carRepository.Get(id);
+            return _IcarRepository.Get(id);
         }
 
         public IEnumerable<Car> GetAll()
         {
-            return _carRepository.GetAll();
+            return _IcarRepository.GetAll();
         }
 
         public void Remove(Car car)
         {
-            _carRepository.Remove(car);
+            _IcarRepository.Remove(car);
         }
 
         public Car Update(Car updatedCar)
         {
-            return _carRepository.Update(updatedCar);
+            return _IcarRepository.Update(updatedCar);
         }
     }
 }

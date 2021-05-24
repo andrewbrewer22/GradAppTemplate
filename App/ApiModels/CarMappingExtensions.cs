@@ -16,11 +16,11 @@ namespace App.ApiModels
                 //controller
 
                 Id = item.Id,
-                Color = item.Color,
                 Make = item.Make,
                 Model = item.Model,
                 Type = item.Type,
-                Year = item.Year
+                Year = item.Year,
+                Color = item.Color,
             };
         }
 

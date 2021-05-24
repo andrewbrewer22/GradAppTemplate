@@ -8,7 +8,7 @@ namespace App.Core.Models
 {
     public class Car
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int Id { get; set; }
         [Required]
         public string Make { get; set; }
@@ -22,10 +22,6 @@ namespace App.Core.Models
         public int Year { get; set; }
         [Required]
         public string Color { get; set; }
-        [Required]
-        public int UserId { get; set; }
-
-        public User User { get; set; }
 
     }
 }
